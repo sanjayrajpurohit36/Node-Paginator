@@ -18,7 +18,7 @@ module.exports = {
         var dbo = req.app.db.db("student");
         var test = dbo.collection('record');
         test.find().toArray().then(function (result) {
-        let page_size = 10;
+        let page_size = 100;
         let no_of_pages = Math.ceil(result.length / page_size);
         let current_page = parseInt(req.query["page_no"]);
         if(isNaN(current_page)) current_page = 0;
