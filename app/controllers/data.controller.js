@@ -15,11 +15,11 @@ module.exports = {
     *  @Return: json responce
     */
     show: function (req, res) {
-        var dbo = req.app.db.db("student");
-        var test = dbo.collection('record');
+        var dbo = req.app.db.db("student");         
+        var test = dbo.collection('record');        
         test.find().toArray().then(function (result) {
         let page_size = 100;
-        let no_of_pages = Math.ceil(result.length / page_size);
+        let no_of_pages = Math.ceil(result.length / page_size); 
         let current_page = parseInt(req.query["page_no"]);
         if(isNaN(current_page)) current_page = 0;
         let current_data = result.slice(current_page * page_size, (current_page + 1) * page_size)
