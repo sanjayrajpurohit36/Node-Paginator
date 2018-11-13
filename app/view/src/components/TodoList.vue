@@ -43,7 +43,7 @@
             <li class="page-item" v-bind:class="{'disabled': current_page==0}">
               <a class="page-link" href="javascript:void(0)" v-on:click="showTable(current_page - 1)">Previous</a>
             </li>
-            <li class="page-item" v-for="(no_of_pages, index) in no_of_pages" :key="no_of_pages" v-on:click="showTable(index)" >
+            <li class="page-item" v-for="(no_of_pages, index) in no_of_pages" :key="no_of_pages" v-on:click="showTable(index)"v-bind:class="{'active': index==current_page}" >
               <a class="page-link" href="javascript:void(0)">{{no_of_pages}}</a>
             </li>
             <li class="page-item" v-bind:class="{'disabled': current_page==no_of_pages - 1}">
