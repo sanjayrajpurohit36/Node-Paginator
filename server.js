@@ -26,12 +26,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.use(morgan(':url :response-time ms'));				// Using morgan to check request time
-var port = process.env.PORT || 8000;        // set our port
+var port = process.env.PORT || 3000;        // set our port
 // ROUTES FOR OUR API
 // =============================================================================
 var router = express.Router();              // get an instance of the express Router
 
-MongoClient.connect(dbConfig.URL, function(err, db) {
+MongoClient.connect( process.env.MONGODB_URL|| dbConfig.URL, function(err, db) {
     if (err) throw err;
     app.db =  db;
 	require('./app/routes/index')(router, app.db);
