@@ -38,7 +38,7 @@ MongoClient.connect(dbConfig.URL, function(err, db) {
 })	
 app.use(express.static(__dirname +"./app/view/dist/"));
 app.get(/.*/, function(req, res) {
-    res.sendfile(__dirname + "./app/view/dist/index.html");
+    res.sendfile(__dirname + "./app/view/index.html");
 });
 
 app.use('/api', router);
