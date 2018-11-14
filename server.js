@@ -31,11 +31,15 @@ var port = process.env.PORT || 3000;        // set our port
 // =============================================================================
 var router = express.Router();              // get an instance of the express Router
 
-MongoClient.connect( process.env.MONGODB_URL|| dbConfig.URL, function(err, db) {
+MongoClient.connect(dbConfig.URL, function(err, db) {
     if (err) throw err;
     app.db =  db;
 	require('./app/routes/index')(router, app.db);
 })	
+app.use(express.static(__dirname +"app/view/dist/"));
+app.get(/.*/, function(req, res) {
+    res.sendfile(__dirname + "app/view/dist/index.html");
+});
 
 app.use('/api', router);
 
