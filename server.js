@@ -38,9 +38,9 @@ MongoClient.connect(dbConfig.URL, function(err, db) {
     app.db =  db;
 	require('./app/routes/index')(router, app.db);
 })	
-app.use(express.static(__dirname +"./app/view/dist/"));
+app.use(express.static(__dirname +"./app/view/dist/"), router);
 app.get(/.*/, function(req, res) {
-    res.sendfile(__dirname + "./app/view/dist/index.html");
+    res.sendfile(__dirname + "./app/view/dist/index.html", router);
 });
 
 // app.use(serveStatic(__dirname + "./app/view/dist"));
