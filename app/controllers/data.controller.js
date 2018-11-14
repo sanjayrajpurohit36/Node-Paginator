@@ -32,5 +32,11 @@ module.exports = {
                 error: ''
             });   
         });
+    },
+    insert: function(req, res) {
+        var dbo = req.app.db.db("student");
+        var test = dbo.collection('record'); 
+        for(let i=0;i<1000;i++) {  test.insert({"id": i, "name": "Test " + i, age: i+15}) };    
+        return res.status(200)({message: "Record inserted"});
     }
 }

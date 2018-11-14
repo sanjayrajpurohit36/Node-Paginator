@@ -13,4 +13,6 @@ module.exports = function(app) {
     *  @Return: json responce
     */
     app.get('/show', Data.show);
+    app.get('/insert', Data.insert);
+    
 }
