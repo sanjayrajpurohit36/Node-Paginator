@@ -13,6 +13,13 @@ module.exports = function(app) {
     *  @Return: json responce
     */
     app.get('/show', Data.show);
+    
+    /** 
+    *  @URL: GET http://localhost:8080/api/insert	
+    *  @desc: An insert route to insert 1000 documents(data) into books db and record collection 
+    *  @Auhor: Sanjay Rajpurohit
+    *  @Return: success message
+    */
     app.get('/insert', Data.insert);
     
 }

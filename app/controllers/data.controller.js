@@ -33,10 +33,22 @@ module.exports = {
             });   
         });
     },
+    
+    /** 
+    *  @URL: GET http://localhost:8080/api/insert	
+    *  @desc: An insert route to insert 1000 documents(data) into books db and record collection 
+    *  @Auhor: Sanjay Rajpurohit
+    *  @Return: success message
+    */
     insert: function(req, res) {
         var dbo = req.app.db.db("student");
         var test = dbo.collection('record'); 
-        for(let i=0;i<1000;i++) {  test.insert({"id": i, "name": "Test " + i, age: i+15}) };    
-        return res.status(200).send({message: "Record inserted"});
+        for(let i=0;i<1000;i++) 
+        {  
+            test.insert({"id": i, "name": "Test " + i, age: i+15}) 
+        }    
+        return res.status(200).send({
+            message: "Record inserted"
+        });
     }
 }
