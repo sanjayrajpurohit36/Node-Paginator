@@ -83,7 +83,7 @@ export default {
   methods:{
     showTable: function(page_no) {
       let vm = this;  
-      axios.get(`http://localhost:8000/api/show?page_no=` + (page_no))
+      axios.get(`/api/show?page_no=${page_no}` + (page_no))
       .then(response => {
         // JSON responses are automatically parsed.
         vm.todos = response.data.data;  
