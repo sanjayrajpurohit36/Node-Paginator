@@ -7,7 +7,6 @@
 var express    = require('express');        // call express
 var app        = express();                 // define our app using express
 var bodyParser = require('body-parser');
-var serveStatic = require('serve-static');
 
 var MongoClient = require('mongodb').MongoClient;
 var Schema     = require('./app/models/data.model');
@@ -43,7 +42,7 @@ MongoClient.connect(dbConfig.URL, function(err, db) {
 //     res.sendfile(__dirname + "./app/view/index.html");
 // });
 
-app.use(serveStatic(__dirname + "./app/view/dist"), router);
+app.use('/static', express.static(path.join(__dirname, '/app/view/dist')))
 app.use('/api', router);
 
 // START THE SERVER
